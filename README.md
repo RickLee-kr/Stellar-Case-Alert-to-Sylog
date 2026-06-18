@@ -28,11 +28,13 @@ python3 Stellar_Alert_Case_Syslog.py \
   --alert-interval 60 \
   --alert-syslog-ip 10.10.10.20 \
   --alert-syslog-port 5142
+  
 Case only
 python3 Stellar_Alert_Case_Syslog.py \
   --case-interval 300 \
   --case-syslog-ip 10.10.10.20 \
   --case-syslog-port 5143
+
 Both alert and case
 python3 Stellar_Alert_Case_Syslog.py \
   --alert-interval 60 \
