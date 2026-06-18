@@ -211,7 +211,6 @@ User=aella
 Group=aella
 WorkingDirectory=/home/aella/kt
 ExecStart=/usr/bin/python3 /home/aella/kt/Stellar_Alert_Case_Syslog.py \
-  --token YOUR_ALL_ACCESS_TOKEN \
   --alert-interval 60 \
   --alert-syslog-ip 10.10.10.20 \
   --alert-syslog-port 5142 \
