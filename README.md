@@ -44,3 +44,48 @@ python3 Stellar_Alert_Case_Syslog.py \
   --case-syslog-ip 10.10.10.20 \
   --case-syslog-port 5143
 At least one stream must be fully configured or the daemon exits with an error.
+
+Local Files
+Path	Purpose
+~/.local/state/stellar_alert_case/queue.db   Queue + checkpoints
+~/.local/state/stellar_alert_case/logs/stellar_alerts_YYYYMMDD_HH.log   Alert send summary
+~/.local/state/stellar_alert_case/logs/stellar_cases_YYYYMMDD_HH.log   Case send summary
+~/.local/state/stellar_alert_case/stellar_alert_case.lock   Single-instance lock
+
+Running as a Service (systemd)
+[Unit]
+Description=Stellar Cyber Alert + Case Syslog daemon
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=aella
+Group=aella
+WorkingDirectory=/home/aella/kt
+ExecStart=/usr/bin/python3 /home/aella/kt/Stellar_Alert_Case_Syslog.py \
+  --token YOUR_ALL_ACCESS_TOKEN \
+  --alert-interval 60 \
+  --alert-syslog-ip 10.10.10.20 \
+  --alert-syslog-port 5142 \
+  --case-interval 300 \
+  --case-syslog-ip 10.10.10.20 \
+  --case-syslog-port 5143
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl daemon-reload
+sudo systemctl enable --now stellar-alert-case.service
+journalctl -u stellar-alert-case.service -f
+
+Debug Mode
+python3 Stellar_Alert_Case_Syslog.py --debug \
+  --alert-interval 60 --alert-syslog-ip 10.10.10.20 --alert-syslog-port 5142
+
+Backfill Mode (Testing Only)
+python3 Stellar_Alert_Case_Syslog.py --backfill 3 \
+  --alert-interval 60 --alert-syslog-ip 10.10.10.20 --alert-syslog-port 5142 \
+  --case-interval 300 --case-syslog-ip 10.10.10.20 --case-syslog-port 5143
