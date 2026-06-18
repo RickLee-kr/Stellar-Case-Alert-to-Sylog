@@ -89,7 +89,9 @@ RestartSec=10
 WantedBy=multi-user.target
 
 sudo systemctl daemon-reload
+
 sudo systemctl enable --now stellar-alert-case.service
+
 journalctl -u stellar-alert-case.service -f
 
 Debug Mode
