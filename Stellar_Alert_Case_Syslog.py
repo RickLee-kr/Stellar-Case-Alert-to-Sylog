@@ -33,7 +33,7 @@ from urllib.request import Request, urlopen
 
 HOST = "xdr.ooo"
 USERID = "ruda@rick.kr"
-ALL_ACCESS_TOKEN = "gOVtgdx5TIcZAFbC4D0WDXov34gCkEWUv2Oid6H6iFhV0CoVYIpf4Ou0OJIHHleBER43Uw"
+ALL_ACCESS_TOKEN = "gOVtgdxveQWc5TIcZAFbC4D0WDXtnLQESmov34gCkEWUv23BtuOid6H6iFhV0CoVYIpf4Ou0OJIHHleBER43Uw"
 
 ALERT_INTERVAL_SEC = None
 CASE_INTERVAL_SEC = None
@@ -1337,3 +1337,4 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
