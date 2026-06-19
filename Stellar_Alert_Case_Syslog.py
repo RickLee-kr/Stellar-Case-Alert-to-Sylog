@@ -33,7 +33,7 @@ from urllib.request import Request, urlopen
 
 HOST = "xdr.ooo"
 USERID = "ruda@rick.kr"
-ALL_ACCESS_TOKEN = "gOVtgdxveQWc5TIcZAFbC4D0WDXtnLQESmov34gCkEWUv23BtuOid6H6iFhV0CoVYIpf4Ou0OJIHHleBER43Uw"
+ALL_ACCESS_TOKEN = "gOVtgdxveQWc5TIcZAFbC4D0WDXtnLQESmov34gCkEWUv23BtuOidhV0CoVYIpf4OuIHHleBER43Uw"
 
 ALERT_INTERVAL_SEC = None
 CASE_INTERVAL_SEC = None
